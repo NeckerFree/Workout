@@ -21,6 +21,7 @@ const Login = () => {
     axios(configuration)
     .then((result)=>{
       setLogin(true);
+      //console.log('token: ' + result.data.auth_token);
       cookies.set("TOKEN", result.data.auth_token, {
         path: "/",
       });
