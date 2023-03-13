@@ -12,7 +12,8 @@
 //   );
 
 const Navigation = () => (
-  <nav>
+  <nav id="navigation">
+    <Link to="/account" className="nav-link">Account</Link>
     <Link to="/landing">Landing</Link>
     <Link to="/home">Home</Link>
     <Link to="/dashboard">Dashboard</Link>
@@ -21,3 +22,4 @@ const Navigation = () => (
   </nav>
 );
 export default Navigation;
+

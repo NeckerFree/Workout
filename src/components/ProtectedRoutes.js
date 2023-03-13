@@ -1,46 +1,38 @@
-import React from 'react';
-import { Navigate, Outlet } from 'react-router-dom';
-// import Cookies from "universal-cookie";
-// const cookies = new Cookies();
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
+import Cookies from "universal-cookie";
+const cookies = new Cookies();
 
-// const ProtectedRoutes = ({ element: Component, ...rest }) => {
-//   return (
-//     <Routes>
-//       <Route
-//         {...rest}
-//         render={(props) => {
-//           const token = cookies.get("TOKEN");
-//           if (token) {
-//             return <Component {...props} />;
-//           } else {
-//             // returns the user to the landing page if there is no valid token set
-//             return (
-//               <Navigate
-//                 to={{
-//                   pathname: "/",
-//                   state: {
-//                     // sets the location a user was about to access before being redirected to login
-//                     from: props.location,
-//                   },
-//                 }}
-//               />
-//             );
-//           }
-//         }}
-//       />
-//     </Routes>
-//   );
-// }
-const ProtectedRoute = ({  
-  isAllowed,
-  redirectPath = '/landing',
-  children,
-}) => {
-  if (!isAllowed) {
-    return <Navigate to={redirectPath} replace />;
-  }
+// receives component and any other props represented by ...rest
+export default function ProtectedRoutes({ component: Component, ...rest }) {
+  return (
 
-  return children ? children : <Outlet />;
-};
-export default ProtectedRoute;
+    // this route takes other route assigned to it from the App.js and return the same route if condition is met
+    <Route
+      {...rest}
+      render={(props) => {
+        // get cookie from browser if logged in
+        const token = cookies.get("TOKEN");
 
+        // return route if there is a valid token set in the cookie
+        if (token) {
+          return <Component {...props} />;
+        } else {
+          ///window.location.href = "/landing";
+          // return the user to the landing page if there is no valid token set
+          // return (
+          //   <Redirect
+          //     to={{
+          //       pathname: "/",
+          //       state: {
+          //         // sets the location a user was about to assess before being redirected to login
+          //         from: props.location,
+          //       },
+          //     }}
+          //   />
+          // );
+        }
+      }}
+    />
+  );
+}
