@@ -258,9 +258,9 @@ I would like to thank...
 
 > Add at least 2 questions new developers would ask when they decide to use your project.
 
-- **[Question_1]**
+- **How to protect React components?**
 
-  - [Answer_1]
+  - [Create Protect Routes](https://www.makeuseof.com/create-protected-route-in-react/)
 
 - **[Question_2]**
 
