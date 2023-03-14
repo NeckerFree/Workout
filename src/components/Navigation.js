@@ -1,25 +1,15 @@
- import React from 'react';
- import { Link } from "react-router-dom";
-
-// const Navigation = () => (
-//     <nav>
-//       <Link to="/">Home</Link>
-//       <Link to="/home">Home</Link>
-//       <Link to="/free">Free Component</Link>
-//       <Link to="/analytics">Analytics</Link>
-//       <Link to="/auth">Auth Component</Link>
-//     </nav>
-//   );
+import React from 'react';
+import { Link } from "react-router-dom";
 
 const Navigation = () => (
   <nav id="navigation">
-    <Link to="/account" className="nav-link">Account</Link>
+    <Link to="/account">Account</Link>
     <Link to="/landing">Landing</Link>
     <Link to="/home">Home</Link>
     <Link to="/dashboard">Dashboard</Link>
+    <Link to="/trainings">Register Training</Link>
     <Link to="/analytics">Analytics</Link>
     <Link to="/admin">Admin</Link>
   </nav>
 );
 export default Navigation;
-
